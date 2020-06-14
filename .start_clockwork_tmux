@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# 'Ctrl+b' then 'c' to create a window
+# 'Ctrl+b' then ',' to rename a window
+# 'Ctrl+b' then 'x' to kill a window
+
+# 'Ctrl-b' then '%' to vertical split
+# 'Ctrl-b' then '"' to horizontal split
+# 'Ctrl-b' then 'o' to swap panes from splits
+# 'Ctrl-b' then 'x' to kill a pane
+
+# Session Name
+session="clockwork"
+
+# Create new clockwork session
+tmux new-session -d -s $session
+
+# Vim
+tmux rename-window -t 0 'vim'
+tmux send-keys -t 'vim' 'vim' Enter
+
+# Git
+tmux new-window -t $session:1 -n 'git'
+tmux send-keys -t 'git' 'gst' Enter
+
+# Rails Server
+tmux new-window -t $session:2 -n 'rails server'
+tmux send-keys -t 'rails server' 'mysql.server start' Enter
+tmux send-keys -t 'rails server' 'rails s' Enter
+
+# Rails Console
+tmux new-window -t $session:3 -n 'rails console'
+tmux send-keys -t 'rails console' 'rails c' Enter
+
+# Yarn
+tmux new-window -t $session:4 -n 'yarn'
+tmux send-keys -t 'yarn' 'yarn run watch' Enter
+
+# Redis
+tmux new-window -t $session:5 -n 'redis'
+tmux send-keys -t 'redis' 'redis-server' Enter
+
+# Sidekiq
+tmux new-window -t $session:6 -n 'sidekiq'
+tmux send-keys -t 'sidekiq' 'bundle exec sidekiq -C config/sidekiq_staging.yml' Enter
+
+# Caffeinate
+tmux new-window -t $session:7 -n 'caffeinate'
+tmux send-keys -t 'caffeinate' 'caffeinate -d' Enter
+
+# Select Vim window
+tmux select-window -t 0
+
+# Attach clockwork session to terminal
+tmux a -t $session
+
