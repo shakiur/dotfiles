@@ -23,9 +23,11 @@ noremap <C-L> <C-W><C-L>
 
 " Plugins
 set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim " Enables the CtrlP plugin
+
+" Vim-Plug
+" Install: :PlugInstall
 call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
-  " Themes
+" Themes
   Plug 'joshdick/onedark.vim'
   Plug 'morhetz/gruvbox'
   Plug 'tomasr/molokai'
@@ -33,17 +35,26 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'rakr/vim-one'
   Plug 'sheerun/vim-polyglot'
 
-  " Utilities
+" Utilities
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
 " Themes
 colorscheme one
 set background=dark
 call one#highlight('StatusLine','abb2bf','181a1f','none') " Fixes filepath highlight
+
+let g:deoplete#enable_at_startup = 1
+
+" Customize coc.vim settings
+highlight Pmenu ctermbg=darkgray
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Configures vim-one theme within tmux
 set t_8b=^[[48;2;%lu;%lu;%lum
@@ -55,3 +66,6 @@ let g:fzf_layout = { 'down': '~20%' }
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Fix clipboard settings
+set clipboard=unnamed
+set mouse=
