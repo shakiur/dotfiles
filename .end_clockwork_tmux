@@ -1,0 +1,31 @@
+#!/bin/bash
+
+session="clockwork"
+
+# Attach clockwork session
+tmux a -t $session
+
+# End Sidekiq
+tmux select-window -t 6
+tmux send-keys ^c
+
+# End Redis
+tmux select-window -t 5
+tmux send-keys ^c
+
+# End Yarn
+tmux select-window -t 4
+tmux send-keys ^c
+
+# End Rails Console
+tmux select-window -t 3
+tmux send-keys 'exit' Enter
+
+# End Rails Server
+tmux select-window -t 2
+tmux send-keys  ^c
+tmux send-keys 'mysql.server stop' Enter
+
+# Optional: Kill session
+# tmux kill-session -t clockwork
+
