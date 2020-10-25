@@ -3,11 +3,14 @@
 # 'Ctrl+b' then 'c' to create a window
 # 'Ctrl+b' then ',' to rename a window
 # 'Ctrl+b' then 'x' to kill a window
+# 'Ctrl+b' then '[' to make window scrollable
 
 # 'Ctrl-b' then '%' to vertical split
 # 'Ctrl-b' then '"' to horizontal split
 # 'Ctrl-b' then 'o' to swap panes from splits
 # 'Ctrl-b' then 'x' to kill a pane
+
+# 'Ctrl-b' then 'alt-arrows' to resize a pane
 
 # Session Name
 session="clockwork"
