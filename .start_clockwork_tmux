@@ -29,11 +29,11 @@ tmux send-keys -t 'git' 'gst' Enter
 # Rails Server
 tmux new-window -t $session:2 -n 'rails server'
 tmux send-keys -t 'rails server' 'mysql.server start' Enter
-tmux send-keys -t 'rails server' 'rails s' Enter
+tmux send-keys -t 'rails server' 'DB=remote bundle exec rails s' Enter
 
 # Rails Console
 tmux new-window -t $session:3 -n 'rails console'
-tmux send-keys -t 'rails console' 'rails c' Enter
+tmux send-keys -t 'rails console' 'DB=remote bundle exec rails c' Enter
 
 # Yarn
 tmux new-window -t $session:4 -n 'yarn'
