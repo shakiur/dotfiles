@@ -45,7 +45,7 @@ tmux send-keys -t 'redis' 'redis-server' Enter
 
 # Sidekiq
 tmux new-window -t $session:6 -n 'sidekiq'
-tmux send-keys -t 'sidekiq' 'bundle exec sidekiq -C config/sidekiq_staging.yml' Enter
+tmux send-keys -t 'sidekiq' 'DB=remote bundle exec sidekiq -C config/sidekiq_staging.yml' Enter
 
 # Caffeinate
 tmux new-window -t $session:7 -n 'caffeinate'
