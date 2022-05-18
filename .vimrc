@@ -35,6 +35,9 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'rakr/vim-one'
   Plug 'sheerun/vim-polyglot'
 
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
 " Utilities
   Plug '/usr/local/opt/fzf'
   Plug 'junegunn/fzf.vim'
@@ -69,3 +72,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Fix clipboard settings
 set clipboard=unnamed
 set mouse=
+
+" Highlight 80th Character
+augroup vimrc_autocmds
+  autocmd BufEnter,WinEnter * highlight ColorColumn ctermbg=DarkGray
+  autocmd BufEnter,WinEnter * call matchadd('ColorColumn', '\%81v', 100)
+augroup END
