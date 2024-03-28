@@ -29,42 +29,25 @@ set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
 call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
 " Themes
   Plug 'joshdick/onedark.vim'
-  Plug 'morhetz/gruvbox'
-  Plug 'tomasr/molokai'
-  Plug 'drewtempelmeyer/palenight.vim'
   Plug 'rakr/vim-one'
-  Plug 'sheerun/vim-polyglot'
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plug 'itchyny/lightline.vim'
+  Plug 'vim-airline/vim-airline'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
 " Utilities
-  Plug '/usr/local/opt/fzf'
-  Plug 'junegunn/fzf.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
-" Themes
-colorscheme one
-set background=dark
-call one#highlight('StatusLine','abb2bf','181a1f','none') " Fixes filepath highlight
-
-let g:deoplete#enable_at_startup = 1
-
-" Customize coc.vim settings
-highlight Pmenu ctermbg=darkgray
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Configures vim-one theme within tmux
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
-
-" Configure FZF
-let g:fzf_layout = { 'down': '~20%' }
+" Themes Catppucci
+colorscheme catppuccin_mocha
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+set noshowmode
+"let g:airline_theme = 'catppuccin_mocha'
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>

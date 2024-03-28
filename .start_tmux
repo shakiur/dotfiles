@@ -13,7 +13,15 @@
 # 'Ctrl-b' then 'alt-arrows' to resize a pane
 
 # Session Name
-session="clockwork"
+session="jw"
+caffeinate="caffeinate"
+
+# Create new caffeinate session
+tmux new-session -d -s $caffeinate
+
+# Caffeinate
+tmux new-window -t $caffeinate:0 -n 'caffeinate'
+tmux send-keys -t 'caffeinate' 'caffeinate -d' Enter
 
 # Create new clockwork session
 tmux new-session -d -s $session
@@ -29,11 +37,11 @@ tmux send-keys -t 'git' 'gst' Enter
 # Rails Server
 tmux new-window -t $session:2 -n 'rails server'
 tmux send-keys -t 'rails server' 'mysql.server start' Enter
-tmux send-keys -t 'rails server' 'DB=remote bundle exec rails s' Enter
+tmux send-keys -t 'rails server' 'bundle exec rails s' Enter
 
 # Rails Console
 tmux new-window -t $session:3 -n 'rails console'
-tmux send-keys -t 'rails console' 'DB=remote bundle exec rails c' Enter
+tmux send-keys -t 'rails console' 'bundle exec rails c' Enter
 
 # Yarn
 tmux new-window -t $session:4 -n 'yarn'
@@ -45,15 +53,10 @@ tmux send-keys -t 'redis' 'redis-server' Enter
 
 # Sidekiq
 tmux new-window -t $session:6 -n 'sidekiq'
-tmux send-keys -t 'sidekiq' 'DB=remote bundle exec sidekiq -C config/sidekiq_staging.yml' Enter
-
-# Caffeinate
-tmux new-window -t $session:7 -n 'caffeinate'
-tmux send-keys -t 'caffeinate' 'caffeinate -d' Enter
+tmux send-keys -t 'sidekiq' 'bundle exec sidekiq -C config/sidekiq_staging.yml' Enter
 
 # Select Vim window
 tmux select-window -t 0
 
 # Attach clockwork session to terminal
 tmux a -t $session
-
