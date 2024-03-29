@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# 'Ctrl+b' then 'c' to create a window
+# 'Ctrl+b' then ',' to rename a window
+# 'Ctrl+b' then 'x' to kill a window
+# 'Ctrl+b' then '[' to make window scrollable
+
+# 'Ctrl-b' then '%' to vertical split
+# 'Ctrl-b' then '"' to horizontal split
+# 'Ctrl-b' then 'o' to swap panes from splits
+# 'Ctrl-b' then 'x' to kill a pane
+
+# 'Ctrl-b' then 'alt-arrows' to resize a pane
+
+# Session Name
+session="caffeinate"
+
+# Create new caffeinate session
+tmux new-session -d -s $session
+
+# Caffeinate
+tmux rename-window -t 0 'caffeinate'
+tmux send-keys -t 'caffeinate' 'caffeinate -d' Enter
+
