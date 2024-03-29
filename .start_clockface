@@ -1,0 +1,35 @@
+
+#!/bin/bash
+
+# 'Ctrl+b' then 'c' to create a window
+# 'Ctrl+b' then ',' to rename a window
+# 'Ctrl+b' then 'x' to kill a window
+# 'Ctrl+b' then '[' to make window scrollable
+
+# 'Ctrl-b' then '%' to vertical split
+# 'Ctrl-b' then '"' to horizontal split
+# 'Ctrl-b' then 'o' to swap panes from splits
+# 'Ctrl-b' then 'x' to kill a pane
+
+# 'Ctrl-b' then 'alt-arrows' to resize a pane
+
+# Session Name
+session="clockface"
+
+# Create new clockwork session
+tmux new-session -d -s $session
+
+# Vim
+tmux rename-window -t 0 'vim'
+tmux send-keys -t 'vim' 'cd ~/src/github.com/justworkshr/clockface/' Enter
+tmux send-keys -t 'vim' 'vim' Enter
+
+# Git
+tmux new-window -t $session:1 -n 'git'
+tmux send-keys -t 'git' 'cd ~/src/github.com/justworkshr/clockface/' Enter
+tmux send-keys -t 'git' 'gst' Enter
+
+# Rails Server
+tmux new-window -t $session:2 -n 'npm server'
+tmux send-keys -t 'npm server' 'cd ~/src/github.com/justworkshr/clockface/' Enter
+tmux send-keys -t 'npm server' 'npm start' Enter

@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'rakr/vim-one'
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
-  Plug 'vim-airline/vim-airline'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -47,7 +46,6 @@ call plug#end()
 colorscheme catppuccin_mocha
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 set noshowmode
-"let g:airline_theme = 'catppuccin_mocha'
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
