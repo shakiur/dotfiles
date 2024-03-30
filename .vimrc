@@ -22,6 +22,10 @@ noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 
+" Resize windows horizontally with Ctrl+[ and Ctrl+]
+map <c-]> <c-w>>
+map <c-[> <c-w><
+
 " Plugins
 set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
 
