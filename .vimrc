@@ -16,16 +16,17 @@ set shiftwidth=2 " Converts '<' and '>' into to 2 spaces in visual mode
 set autoindent " Auto indent new lines based on previous lines indent
 autocmd BufWritePre * %s/\s\+$//e " Deletes trailing whitespace on :w save
 
-" Vim window shortcut remapping
+" Traverse window splits
 noremap <C-H> <C-W><C-H>
 noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 
-" Resize windows horizontally
-" Ctrl+[ / Ctrl+]
-map <c-]> <c-w>>
-map <c-[> <c-w><
+" Resize windows
+noremap = :res +1<CR>
+noremap - :res -1<CR>
+noremap ' :vertical res +1<CR>
+noremap ; :vertical res -1<CR>
 
 " Plugins
 set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
@@ -39,13 +40,12 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'catppuccin/vim', { 'as': 'catppuccin' }
   Plug 'itchyny/lightline.vim'
 
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-
 " Utilities
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Themes Catppucci
