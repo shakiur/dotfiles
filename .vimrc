@@ -22,7 +22,8 @@ noremap <C-J> <C-W><C-J>
 noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 
-" Resize windows horizontally with Ctrl+[ and Ctrl+]
+" Resize windows horizontally
+" Ctrl+[ / Ctrl+]
 map <c-]> <c-w>>
 map <c-[> <c-w><
 
@@ -57,7 +58,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Fix clipboard settings
 set clipboard=unnamed
-set mouse=
+
+" Mouse scroll and drag panes
+set mouse=n
+set ttymouse=xterm2
 
 " Highlight 80th Character
 augroup vimrc_autocmds
