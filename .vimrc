@@ -23,10 +23,14 @@ noremap <C-K> <C-W><C-K>
 noremap <C-L> <C-W><C-L>
 
 " Resize windows
-noremap = :res +1<CR>
-noremap - :res -1<CR>
-noremap ' :vertical res +1<CR>
-noremap ; :vertical res -1<CR>
+" Hortizontal Resize - Equal(=) Minus(-)
+" Hortizontal Resize - Equal(=) Minus(-)
+noremap = :vertical res +1<CR>
+noremap - :vertical res -1<CR>
+" Vertical Resize - Plus(+) Underscore(_)
+" Vertical Resize - Plus(+) Underscore(_)
+noremap + :res +1<CR>
+noremap _ :res -1<CR>
 
 " Plugins
 set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
