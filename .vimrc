@@ -6,6 +6,7 @@ set wildmenu " Display bar that lists all potentially matched files
 set hlsearch " Enables highlighting when searching
 set termguicolors " Fixes tmux colors when using colorscheme
 set regexpengine=0 " Fixes jsx and tsk delay
+set noswapfile " Gets rid of .swp files
 syntax on " Sets default coloring
 
 " Tabs / Indentation / White space
