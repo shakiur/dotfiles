@@ -9,17 +9,17 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load?
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cdcw="dev cd clockwork_web"
-alias cdcf="dev cd clockface"
-alias cddf="dev cd dotfiles"
-alias cdgems="cd /Users/shakiurrahman/.asdf/installs/ruby/3.1.4/lib/ruby/gems/3.1.0/gems"
+alias cw="dev cd clockwork_web"
+alias cf="dev cd clockface"
+alias df="dev cd dotfiles"
+alias gems="cd /Users/shakiurrahman/.asdf/installs/ruby/3.1.4/lib/ruby/gems/3.1.0/gems"
 
 eval "$(fzf --zsh)"
 

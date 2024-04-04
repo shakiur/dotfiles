@@ -51,7 +51,12 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'dense-analysis/ale'
+  Plug 'mileszs/ack.vim'
 call plug#end()
+
+" Disable ALE enable by :ALEToggle
+let g:ale_enabled=0
 
 " Themes Catppucci
 colorscheme catppuccin_mocha
