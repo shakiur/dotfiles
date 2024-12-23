@@ -7,6 +7,7 @@ set hlsearch " Enables highlighting when searching
 set termguicolors " Fixes tmux colors when using colorscheme
 set regexpengine=0 " Fixes jsx and tsk delay
 set noswapfile " Gets rid of .swp files
+set cursorline " Highlights horizontal line
 syntax on " Sets default coloring
 
 " Tabs / Indentation / White space
@@ -33,6 +34,9 @@ noremap - :vertical res -1<CR>
 noremap + :res +1<CR>
 noremap _ :res -1<CR>
 
+" Type :CopyCWD to copy current directory
+command! CopyCWD let @+ = getcwd()
+
 " Plugins
 set rtp+=/usr/local/opt/fzf " Enables the FZF plugin
 
@@ -52,11 +56,21 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'dense-analysis/ale'
-  Plug 'mileszs/ack.vim'
+  " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Disable ALE enable by :ALEToggle
 let g:ale_enabled=0
+let g:ale_linters = {
+\   'ruby': ['rubocop'],
+\}
+
+" let g:coc_global_extensions = [
+" \  'coc-tsserver',
+" \  'coc-json',
+" \]
+
+let g:coc_node_path = '/Users/shakiurrahman/.asdf/installs/nodejs/14.21.3/bin/node'
 
 " Themes Catppucci
 colorscheme catppuccin_mocha
