@@ -18,6 +18,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cw="dev cd clockwork_web"
 alias cf="dev cd clockface"
+alias sage="dev cd crimsonsage-product"
 alias df="dev cd dotfiles"
 alias gems="cd /Users/shakiurrahman/.asdf/installs/ruby/3.1.4/lib/ruby/gems/3.1.0/gems"
 

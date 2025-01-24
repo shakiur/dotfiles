@@ -11,7 +11,9 @@ tmux rename-window -t 0 'vim'
 tmux send-keys -t 'vim' 'cd ~/src/github.com/justworkshr/crimsonsage-product/' Enter
 tmux send-keys -t 'vim' 'vim' Enter
 
-# Make Build
-tmux new-window -t $session:1 -n 'make'
-tmux send-keys -t 'make' 'cd ~/src/github.com/justworkshr/crimsonsage-product/' Enter
-tmux send-keys -t 'make' 'make build start' Enter
+# Split the window vertically
+tmux split-window -h -t 'vim'
+
+# Send keys to the new pane
+tmux send-keys -t 'vim.1' 'cd ~/src/github.com/justworkshr/crimsonsage-product/' Enter
+tmux send-keys -t 'vim.1' 'make build start' Enter

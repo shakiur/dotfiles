@@ -56,8 +56,11 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'dense-analysis/ale'
+  Plug 'github/copilot.vim'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
+let g:copilot_node_command = "~/.asdf/installs/nodejs/20.11.0/bin/node"
 
 " Disable ALE enable by :ALEToggle
 let g:ale_enabled=0
