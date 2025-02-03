@@ -11,6 +11,11 @@ tmux rename-window -t 0 'vim'
 tmux send-keys -t 'vim' 'cd ~/src/github.com/justworkshr/clockwork_web/' Enter
 tmux send-keys -t 'vim' 'vim' Enter
 
+# Split the window vertically 80 characters wide
+tmux split-window -h -t 'vim'
+tmux select-pane -R
+tmux resize-pane -x 80
+
 # Git
 tmux new-window -t $session:1 -n 'git'
 tmux send-keys -t 'git' 'cd ~/src/github.com/justworkshr/clockwork_web/' Enter

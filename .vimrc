@@ -65,13 +65,8 @@ let g:copilot_node_command = "~/.asdf/installs/nodejs/20.11.0/bin/node"
 " Disable ALE enable by :ALEToggle
 let g:ale_enabled=0
 let g:ale_linters = {
-\   'ruby': ['rubocop'],
+\   'ruby': ['rubocop', 'sorbet'],
 \}
-
-" let g:coc_global_extensions = [
-" \  'coc-tsserver',
-" \  'coc-json',
-" \]
 
 let g:coc_node_path = '/Users/shakiurrahman/.asdf/installs/nodejs/14.21.3/bin/node'
 
@@ -90,8 +85,5 @@ set clipboard=unnamed
 set mouse=n
 set ttymouse=xterm2
 
-" Highlight 80th Character
-augroup vimrc_autocmds
-  autocmd BufEnter,WinEnter * highlight ColorColumn ctermbg=DarkGray
-  autocmd BufEnter,WinEnter * call matchadd('ColorColumn', '\%81v', 100)
-augroup END
+nnoremap <leader>cc :execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>
+nnoremap <leader>aa :ALEToggle<CR>
