@@ -57,6 +57,8 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'junegunn/fzf.vim'
   Plug 'dense-analysis/ale'
   Plug 'github/copilot.vim'
+  Plug 'Yggdroot/indentLine'
+  Plug 'ryanoasis/vim-devicons'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -77,6 +79,7 @@ set noshowmode
 
 " Configure NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Fix clipboard settings
 set clipboard=unnamed
@@ -85,5 +88,10 @@ set clipboard=unnamed
 set mouse=n
 set ttymouse=xterm2
 
-nnoremap <leader>cc :execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>
-nnoremap <leader>aa :ALEToggle<CR>
+nnoremap <leader>c :execute 'set colorcolumn=' . (&colorcolumn == '' ? '80' : '')<CR>
+nnoremap <leader>a :ALEToggle<CR>
+nnoremap <leader>i :IndentLinesToggle<CR>
+
+" IndentLine settings
+let g:indentLine_char = '│'
+let g:indentLine_enabled = 0
