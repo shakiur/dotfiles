@@ -74,7 +74,10 @@ let g:coc_node_path = '/Users/shakiurrahman/.asdf/installs/nodejs/14.21.3/bin/no
 
 " Themes Catppucci
 colorscheme catppuccin_mocha
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+let g:lightline = {
+  \ 'colorscheme': 'catppuccin_mocha'
+  \ }
+
 set noshowmode
 
 " Configure NERDTree
