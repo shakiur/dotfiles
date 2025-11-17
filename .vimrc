@@ -59,6 +59,7 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'github/copilot.vim'
   Plug 'Yggdroot/indentLine'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'airblade/vim-gitgutter'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -75,8 +76,23 @@ let g:coc_node_path = '/Users/shakiurrahman/.asdf/installs/nodejs/14.21.3/bin/no
 " Themes Catppucci
 colorscheme catppuccin_mocha
 let g:lightline = {
-  \ 'colorscheme': 'catppuccin_mocha'
+  \ 'colorscheme': 'catppuccin_mocha',
+  \ 'active': {
+  \   'left': [ [ 'filename' ] ],
+  \   'right': [ [ 'gitdiff' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitdiff': 'LightlineGitDiff'
   \ }
+  \ }
+
+function! LightlineGitDiff()
+  if exists('*GitGutterGetHunkSummary')
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('+%d -%d', a, r)
+  endif
+  return ''
+endfunction
 
 set noshowmode
 
