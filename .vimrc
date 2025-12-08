@@ -60,6 +60,7 @@ call plug#begin('~/.vim/plugged') " Searches vim-plugged directory
   Plug 'Yggdroot/indentLine'
   Plug 'ryanoasis/vim-devicons'
   Plug 'airblade/vim-gitgutter'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
